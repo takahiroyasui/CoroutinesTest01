@@ -25,9 +25,8 @@ class MainActivityViewModel : ViewModel(), LifecycleObserver {
 
     val text6 = MutableLiveData<Int>().apply { postValue(0) }
 
-    private fun heavyTask(): String {
+    private fun heavyTask() {
         Thread.sleep(1000)
-        return "END"
     }
 
     fun onClick1() {
@@ -37,8 +36,7 @@ class MainActivityViewModel : ViewModel(), LifecycleObserver {
 
             text1.postValue("LAUNCH")
 
-            val res = heavyTask()
-            Timber.d(res)
+            heavyTask()
             text2.postValue("LAUNCH")
 
             heavyTask()
